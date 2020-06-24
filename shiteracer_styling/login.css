@@ -1,0 +1,193 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.body, html {
+	/*height: 100vh;*/
+	/*display: grid;*/
+	/*overflow: hidden;*/
+}
+
+body {
+	background-color: #E6FAFC;
+	margin: 0;
+	display: grid;
+	grid-template-columns: 2fr 1fr 2fr;
+	grid-template-rows: 1fr 2fr 6fr 2fr;
+	grid-template-areas: 
+	"header header header"
+	". . ."
+	". login . "
+	". . .";
+}
+
+.banner-text {
+	font-size: 50px;
+	font-family: Rockwell;
+	color: #F1FAEE;
+}
+
+.login-button:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0, 0.1);
+}
+
+header {	
+	grid-area: header;
+	background-color: #A8DADC;
+}
+
+#loginsection {
+	display: grid;
+	grid-template-rows: 19% 81%;
+	grid-template-areas: 
+	'sectionheader'
+	'sectioncontent';	
+	grid-area: login;
+	background-color: #F1FAEE;
+}
+
+
+.navbar {
+	justify-content: space-between;
+	flex-direction: row;
+	display: flex;
+	align-items: center;
+	display: flex;	
+}
+
+
+.dot {  
+  background-color: #F1FAEE;
+  border-radius: 50%;
+}
+
+#sectionheader {
+	flex-direction: row;
+	display: flex;
+	justify-content: space-between;		
+	border-radius: 20px 20px 0px 0px;
+	grid-area: sectionheader;
+	background-color: lightblue;
+}
+
+#sectioncontent {
+	display: grid;
+	grid-template-areas: 
+	'forms'
+	'buttons';
+	grid-template-columns: 100%;
+	grid-template-rows: 50% 50%;
+	grid-area: sectioncontent;
+	background-color: #F1FAEE;
+	border-radius: 20px 20px 20px 20px;
+}
+
+
+.forms {
+	display: flex;
+	flex-direction: column;
+	grid-area: forms;
+	justify-content: center;
+	background-color: #F1FAEE;
+}
+
+.buttons {
+	margin-top: 17%;
+	display: flex;
+	/*align-items: center;*/
+	justify-content: center;
+	grid-area: buttons;
+	background-color: #F1FAEE;
+	border-radius: 20px 20px 20px 20px;
+}
+
+.username {
+	height: 50px;
+	border-radius: 30px;
+}
+
+.password {
+	height: 50px;
+	border-radius: 30px;	
+}
+
+
+.login-button {
+	font-size: 2rem;
+	height: 50px;
+	width: 50%;
+	font-family: Rockwells;	
+	border-radius: 30px;
+	color: white;
+	background-color: #A8DADC;	
+}
+
+.user_container {
+	position: relative;
+	display: grid;	
+	grid-template-areas: 
+	'icon form';
+	grid-template-rows: 50%;
+	grid-template-columns: 5% 99%
+}
+
+
+
+
+.username {		
+	line-height: normal;
+	grid-column: span 3 / 3;
+	grid-row: span 1 / 2;
+	vertical-align: middle;	
+	padding-top: 8px;
+
+	/*padding-left: 45px;*/
+	padding-right: 10px;
+	font-size: 22px;
+	font-family: Rockwell;
+	text-indent: 45px;	
+}
+
+.input-icon {
+	background-color: white;
+	grid-area: icon;
+
+	z-index: 100;
+	color: #A8DADC;	
+}
+
+
+.username::placeholder {
+	color: #969696;
+	opacity: 0.9;
+}
+
+.password {		
+	grid-column: span 3 / 3;
+	grid-row: span 1 / 2;
+	vertical-align: middle;
+	padding-top: 5px;
+	font-size: 22px;
+	font-family: Rockwell;
+	text-indent: 45px;	
+}
+
+.password::placeholder {
+	color: #969696;
+	opacity: 0.9;
+}
+
+
+
+main {	
+	grid-area: login;
+	background-color: #F1FAEE;
+}
+
+
+
+
+
+
+

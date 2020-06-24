@@ -1,0 +1,37 @@
+/* Support International box-sizing Awareness Day ^.^ */
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    height: 100%;
+}
+.full {        
+    height: 100%;
+    display: grid;	
+    grid-template-rows: minmax(70px, 1fr) 11fr;
+    grid-template-areas: 
+    'header'
+    'vue_container';
+}
+
+.header {
+    display: grid;
+    grid-template-areas: 'banner notification login_button';    
+    grid-template-columns: 1fr 2fr 1fr;
+    /* display: grid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; */
+    background-color: #a8dadc;
+    grid-area: header;
+    z-index: 1;
+  }
+
+.vue_container {
+    grid-area: vue_container;
+    height: 100%;
+    width: 100%;
+    background-color: #e6fafc;    
+}

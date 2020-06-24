@@ -1,0 +1,256 @@
+	html, body {
+			margin: 0;
+			height: 100%;
+		}
+		*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+		.dot {  
+  			background-color: #F1FAEE;
+  			border-radius: 50%;
+		}
+		body {
+
+			display: grid;	
+			grid-template-rows: minmax(80px, 1fr) 11fr;
+			grid-template-areas: 
+			'header'
+			'main';
+		}
+
+		.header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			background-color: #A8DADC;
+			grid-area: header;			
+			z-index: 1;
+		}
+		
+
+ 	
+ 	@media (max-width: 2000px) {
+	.main {
+			grid-template-areas: 
+			'. . .'
+			'. race .'
+			'. . .';
+			display: grid;
+			grid-template-rows: 0.2fr 2fr 0.4fr;
+			grid-template-columns: 1fr 6fr 1fr;
+			grid-area: main;
+			background-color: #E6FAFC;
+		}
+	}
+
+	.banner-text {
+		font-size: 50px;
+		font-family: Rockwell;
+		color: #F1FAEE;
+	}
+
+	@media (max-width: 1500px) {
+          .main {
+			grid-template-areas: 
+			'. . .'
+			'. race .'
+			'. . .';
+			display: grid;
+			grid-template-rows: 0.4fr 4fr 0.4fr;
+			grid-template-columns: 0.7fr 20fr 0.7fr;
+			grid-area: main;
+			background-color: #E6FAFC;
+		}
+    }
+	
+		
+	@media (max-width: 1000px) {
+          .main {
+			grid-template-areas: 
+			'. . .'
+			'. race .'
+			'. . .';
+			display: grid;
+			grid-template-rows: 0.1fr 4fr 0.1fr;
+			grid-template-columns: 0.4fr 20fr 0.4fr;
+			grid-area: main;
+			background-color: #E6FAFC;
+		}
+    }
+
+		.words {
+			font-size: 1.4em;
+			font-family: Rockwell;
+			color: #969696;
+		}
+
+		.race {
+			display: grid;
+			grid-area: race;
+			grid-template-rows: 0.8fr 4.5fr 0.6fr;			
+			grid-template-areas:
+			'race-header'
+			'race-content'
+			'race-input';
+			
+		}
+
+		.race-header {
+			z-index: 1;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			font-family: Rockwell;
+			font-size: 2.4em;
+			justify-content: space-between;
+			border-radius: 20px 20px 0 0;
+			grid-area: race-header;
+			background-color: #A8DADC;
+		}
+
+		.race-content {
+			display: grid;
+			grid-template-areas: 
+			'race-bars'
+			'race-words';
+			grid-template-rows: 1.5fr 2fr;
+			border-radius: 0 0 20px 20px;
+			grid-area: race-content;
+			background-color: #F1FAEE;
+		}
+
+		@media(max-width: 2000px) {
+			.race-bars {
+			display: grid;
+			grid-template-areas: 
+			'bar1'
+			'bar2'
+			'bar3'
+			'bar4';			
+			grid-gap: 1.5em;
+			/* grid-template-rows: 0.25fr;					 */
+			background-color: #F1FAEE; 
+		}	
+		}
+		@media(max-width: 1000px) {
+				.race-bars {
+			display: grid;
+			grid-template-areas: 
+			'bar1'
+			'bar2'
+			'bar3'
+			'bar4';			
+			grid-gap: 2.5em;
+			grid-template-rows: 0.5fr,0.5fr, 0.5fr, 0.5fr;			
+			background-color: #F1FAEE; 
+		}	
+		}
+		@media(max-width: 600px) {
+			.race-bars {
+			display: grid;
+			grid-template-areas: 
+			'bar1'
+			'bar2'
+			'bar3'
+			'bar4';			
+			grid-gap: 3.5em;
+			grid-template-rows: minmax(0.75fr, 5px) 0.75fr 0.75fr 0.75fr 0.75fr;			
+			background-color: #F1FAEE; 
+		}	
+		}
+		
+
+		.bar1, .bar2, .bar3, .bar4 {
+			border-radius: 20px;
+		}
+
+		.bar1 {
+			background-color: white;
+			/* background-color: #A8DADC; */
+			opacity: 1;
+
+			grid-area: bar1;
+		}
+
+		.bar1#progress {
+			background-color: #A8DADC;
+			/* background-color: #5E2BFF; */
+			z-index: 10000;
+			width: 50%;
+		}
+
+		.bar2 {
+			background-color: white;
+			/* background-color: #F7AEF8; */
+			/* background-color: #5E2BFF; */
+			opacity: 0.95;
+			grid-area: bar2;
+		}
+
+		.bar2#progress {
+			background-color: #5E2BFF;
+			z-index: 10000;
+			width: 50%;
+		}
+
+		.bar3 {
+			background-color: white;
+			/* background-color: #FCB07E; */
+			opacity: 0.95;			
+			grid-area: bar3;	
+		}
+
+		.bar3#progress {
+			background-color: #FCB07E;
+			opacity: 0.1;
+			/* background-color: #5E2BFF; */
+			z-index: 10000;
+			width: 50%;
+		}
+
+		.bar4 {
+			background-color: white;
+			/* background-color: #5E2BFF; */
+			opacity: 0.55;
+			grid-area: bar4;
+		}
+
+		.bar4#progress {
+			background-color: #5E2BFF;
+			opacity: 0.8;
+			z-index: 10000;
+			width: 50%;
+		}
+
+		.race-words {
+			background-color: #F1FAEE;
+			display: flex;
+			flex-direction: column;
+			/*align-content: center;*/
+			justify-content: center;
+		}
+
+		.race-input:focus {
+			box-shadow: 0 0 0 2pt lightblue;
+		}
+
+
+		.race-input {
+			outline: none;
+			font-size: 1.2em;
+			text-indent: 20px;
+			padding-bottom: 0.5%;
+			border-radius: 0 0 20px 20px;
+		}
+
+		.race-input::placeholder {
+			color: #969696;
+			opacity: 0.9;
+		}
+
+		.wpm-counter, .time-counter {
+
+			color: #F1FAEE;
+		}
