@@ -1,6 +1,5 @@
 import * as firebase from "firebase/app";
 import 'firebase/database';
-import 'firebase/messaging';
 import 'firebase/auth';
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -17,13 +16,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging();
 const auth = firebase.auth();
 const db = firebase.database();
-messaging.usePublicVapidKey(process.env.VUE_APP_CLOUD_MESSAGING_KEY!);
 export {
-    firebase,
-    messaging,
+    firebase,    
     auth,
     db
 }
