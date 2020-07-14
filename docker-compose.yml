@@ -33,10 +33,10 @@ services:
     ports:
       - 7001:8080
   client:
-    build: "./shiteracer-client"
+    build: "./client"
     tty: true
     volumes:
-      - "./shiteracer-client:/app"
+      - "./client:/app"
     ports:
       - 7002:8080
 volumes:

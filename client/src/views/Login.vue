@@ -108,16 +108,15 @@ export default class Login extends Vue {
       : "Not got an account? Sign up!";
   }
 
-  async signup(): Promise<void> {
-    console.log("Clicked");
+  async signup(): Promise<void> {    
     this.loading = true;
     const loginDetails = {
-      username: this.username,
+      email: this.username,
       password: this.password
     };
     try {
       const { data } = await axios.post(
-        "http://localhost:8081/users/test/user",
+        "http://localhost:7000/api/users/signup",
         loginDetails
       );
       this.loginError = false;
@@ -145,14 +144,14 @@ export default class Login extends Vue {
   async login(): Promise<void> {
     this.loading = true;
     const loginDetails = {
-      username: this.username,
+      email: this.username,
       password: this.password
     };
     console.log(this.username);
     console.log(this.password);
     try {
       const { data } = await axios.post(
-        "http://localhost:8081/auth/login",
+        "http://localhost:7000/api/users/signin",
         loginDetails
       );
       const { access_token: accessToken } = data;
