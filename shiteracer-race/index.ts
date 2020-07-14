@@ -11,5 +11,5 @@ app.get('/generatewords', (req: Request, res: Response) => {
 });
 
 
-app.listen(8080, () => console.log("Listening on port 3000"));
+app.listen(8080, () => console.log("Listening on port 8080"));
 

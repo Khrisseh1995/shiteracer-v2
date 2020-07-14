@@ -7,7 +7,6 @@ import {currentUserRouter} from './routes/CurrentUser';
 import {signupRouter} from "./routes/SignUp";
 import {signoutRouter} from "./routes/SignOut";
 import {signInRouter} from "./routes/SignIn";
-import {testDatabaseRouter} from './routes/TestDB';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv'
 dotenv.config()
@@ -26,7 +25,6 @@ app.use(
 app.use(signupRouter);
 app.use(currentUserRouter);
 app.use(signoutRouter);
-app.use(testDatabaseRouter);
 app.use(signInRouter);
 
 app.all('*', async (req, res) => {

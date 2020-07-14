@@ -3,6 +3,7 @@ import { body } from 'express-validator';
 import { User } from "../models/User";
 import { validateRequest, BadRequestError } from '@khriiseh/common';
 import { PasswordService } from "../services/PasswordService";
+import { UserService } from '../services/UserService';
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 import jwt from 'jsonwebtoken';
@@ -19,19 +20,12 @@ router.post('/api/users/signin',
         .withMessage('You must apply a password'),
     validateRequest,
     async (req: Request, res: Response) => {
+        const userService = new UserService();
         const { email, password } = req.body;
 
 
-        const existingUser = await User.findOne({ email });
-        const result = await prisma.user.findOne({
-
-            where: {
-
-                username: 'alice@prisma.io',
-
-            },
-
-        })
+        // const existingUser = await User.findOne({ email });
+        const existingUser = await userService.findUser(email);
 
         if (!existingUser) {
             throw new BadRequestError('Invalid Credentials');
@@ -49,12 +43,18 @@ router.post('/api/users/signin',
             email: existingUser.email
         }, process.env.JWT_KEY!);
 
+
+        res.cookie('jwt', userJwt, {
+            httpOnly: true
+        });
+
         req.session = {
             jwt: userJwt
         };
 
-        res.status(200).send(existingUser);
-
+        res.status(200).send({
+            success: true
+        });
 
     });
 

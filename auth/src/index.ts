@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 import {app} from "./app";
+
 
 const start = async () => {
     if (!process.env.JWT_KEY) {
@@ -22,8 +23,8 @@ const start = async () => {
     // } catch (e) {
     //     console.error(e);
     // }
-    app.listen(3000, () => {
-        console.log("Listening on 3000!!!!!!!!");
+    app.listen(8080, () => {
+        console.log("Listening on 8080");
     });
 };
 

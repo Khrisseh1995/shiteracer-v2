@@ -5,6 +5,6 @@ ENV PORT 8080
 ENV HOST 0.0.0.0
 WORKDIR /app
 COPY ./package.json ./
-RUN npm install
+RUN npm install --only=production
 COPY . .
-CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "start"]

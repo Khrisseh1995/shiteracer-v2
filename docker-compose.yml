@@ -1,0 +1,43 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - my-db:/var/lib/mysq
+  auth:
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    build: ./auth    
+    tty: true
+    volumes:
+      - "./auth:/usr/src/app"
+    ports:
+      - 7000:8080
+  race:
+    build: "./shiteracer-race"
+    tty: true
+    volumes:
+      - "./shiteracer-race:/usr/src/app"
+    dns:
+      - 8.8.8.8
+    ports:
+      - 7001:8080
+  client:
+    build: "./shiteracer-client"
+    tty: true
+    volumes:
+      - "./shiteracer-client:/app"
+    ports:
+      - 7002:8080
+volumes:
+  my-db:

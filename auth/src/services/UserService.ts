@@ -19,6 +19,8 @@ export class UserService {
             },
         });
 
+        // const {id, email: emailUser} = existingUser!
+
         return existingUser;
     }
 }
