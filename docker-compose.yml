@@ -16,7 +16,9 @@ services:
       - my-db:/var/lib/mysq
   auth:
     environment:
-      - DATABASE_URL=${DATABASE_URL}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_KEY: ${JWT_KEY}
     build: ./auth    
     tty: true
     volumes:
@@ -32,12 +34,12 @@ services:
       - 8.8.8.8
     ports:
       - 7001:8080
-  client:
-    build: "./client"
-    tty: true
-    volumes:
-      - "./client:/app"
-    ports:
-      - 7002:8080
+  # client:
+  #   build: "./client"
+  #   tty: true
+  #   volumes:
+  #     - "./client:/app"
+  #   ports:
+  #     - 7002:8080
 volumes:
   my-db:

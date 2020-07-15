@@ -4,6 +4,8 @@
       <h1 @click="$router.push({name: 'Race'})" class="banner-text ml-3">ShiteRacer</h1>
         <ChallengeNotifiation class="challenge-notification" />
       <button @click="$router.push({name: 'Login'})" class="header-login-button mr-2 cursor-pointer shadow">Login</button>      
+      <button @click="testCurrentUser">Current</button>
+      
     </section>
     <div class="vue_container">
       <router-view />
@@ -12,6 +14,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import axios from 'axios';
 import Component from "vue-class-component";
 import ChallengeNotifiation from "./components/ChallengeNotification.vue";
 import ChallengeListenerService from './service/firebase/ChallengeListenerService';
@@ -25,6 +28,11 @@ export default class extends Vue {
     
       console.log("Changed");
     // });
+  }
+
+  async testCurrentUser() {
+    const {data} = await axios.get('http://localhost:7000/api/users/currentuser');
+    console.log(data);
   }
 }
 

@@ -43,6 +43,9 @@ router.post('/api/users/signin',
             email: existingUser.email
         }, process.env.JWT_KEY!);
 
+        
+
+
 
         res.cookie('jwt', userJwt, {
             httpOnly: true
@@ -53,7 +56,8 @@ router.post('/api/users/signin',
         };
 
         res.status(200).send({
-            success: true
+            success: true,
+            accessToken: userJwt
         });
 
     });
